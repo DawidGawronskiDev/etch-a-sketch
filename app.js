@@ -2,7 +2,7 @@
 let containerSize = 256;
 
 //number of elements in a row
-let elementSize = 8;
+let elementSize = 64;
 
 //default color
 let colorPick = `hsl(120,100%,50%)`;
