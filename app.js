@@ -2,11 +2,18 @@ let gridContainer = document.querySelector("#grid--container");
 let pixel = document.createElement("div");
 
 let gridContainerSize = 256;
-let pixelSize = 4;
+let pixelSize = 16;
 
 let hueInput = document.querySelector("#hueInput");
 let saturationInput = document.querySelector("#saturationInput");
 let lightnessInput = document.querySelector("#lightnessInput");
+let currentColor = document.querySelector("#currentColor");
+
+//draw only if mouse is clicked
+let isClicked = false;
+gridContainer.addEventListener("click", function () {
+  isClicked = !isClicked;
+});
 
 //reset grid
 function resetGrid() {
@@ -19,8 +26,7 @@ function resetGrid() {
   createGrid();
 }
 
-let newColor = "blue";
-
+let newColor = "red";
 //change color, hue, saturation and lightness
 function changeColor() {
   newColor =
@@ -31,11 +37,14 @@ function changeColor() {
     "%, " +
     lightnessInput.value +
     "%)";
+  currentColor.style.background = newColor;
 }
 
 //change color of pixel
 function changePixelColor(e) {
-  e.target.style.background = newColor;
+  if (isClicked) {
+    e.target.style.background = newColor;
+  }
 }
 
 //change number of pixel in one row
@@ -64,12 +73,13 @@ function outlineDisplay() {
 //create grid
 function createGrid() {
   for (let i = 0; i < pixelSize * pixelSize; i++) {
+    gridContainer.style.width = gridContainerSize + "px";
+    gridContainer.style.height = gridContainerSize + "px";
     pixel = document.createElement("div");
     pixel.style.width = gridContainerSize / pixelSize + "px";
     pixel.style.height = gridContainerSize / pixelSize + "px";
     pixel.classList.add("pixel");
     pixel.style.background = "rgba(0, 0, 0, 0.1)";
-    pixel.style.outline = "1px solid rgba(0, 0, 0, 0.2)";
 
     pixel.addEventListener("mouseenter", changePixelColor);
 
@@ -77,5 +87,4 @@ function createGrid() {
   }
 }
 createGrid();
-window.addEventListener("click", canDraw);
 window.addEventListener("keydown", resetGrid);

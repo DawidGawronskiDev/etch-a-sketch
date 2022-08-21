@@ -12,56 +12,59 @@
     <main>
       <div id="grid--container"></div>
 
-      <label for="pixelSizeInput"
-        >Pixel size:
-        <input
-          type="number"
-          name=""
-          id="pixelSizeInput"
-          min="0"
-          max="32"
-          value="4"
-          oninput="changePixelSize()"
-        />
-      </label>
+      <form action="">
+        <label for="pixelSizeInput"
+          >Pixel size:
+          <input
+            type="number"
+            name=""
+            id="pixelSizeInput"
+            min="0"
+            max="64"
+            value="16"
+            oninput="changePixelSize()"
+          />
+        </label>
 
-      <label for="hueInput"
-        >Hue:
-        <input
-          type="range"
-          name=""
-          id="hueInput"
-          min="1"
-          max="360"
-          value="1"
-          oninput="changeColor()"
-        />
-      </label>
-      <label for="saturationInput"
-        >Saturation:
-        <input
-          type="range"
-          name=""
-          id="saturationInput"
-          min="1"
-          max="100"
-          value="100"
-          oninput="changeColor()"
-        />
-      </label>
-      <label for="lightnessInput"
-        >Lightness:
-        <input
-          type="range"
-          name=""
-          id="lightnessInput"
-          min="1"
-          max="100"
-          value="50"
-          oninput="changeColor()"
-        />
-      </label>
+        <label for="hueInput"
+          >Hue:
+          <input
+            type="range"
+            name=""
+            id="hueInput"
+            min="1"
+            max="360"
+            value="1"
+            oninput="changeColor()"
+          />
+        </label>
+        <label for="saturationInput"
+          >Saturation:
+          <input
+            type="range"
+            name=""
+            id="saturationInput"
+            min="1"
+            max="100"
+            value="100"
+            oninput="changeColor()"
+          />
+        </label>
+        <label for="lightnessInput"
+          >Lightness:
+          <input
+            type="range"
+            name=""
+            id="lightnessInput"
+            min="1"
+            max="100"
+            value="50"
+            oninput="changeColor()"
+          />
+        </label>
+      </form>
       <button onclick="outlineDisplay()">Outline Display</button>
+      <div id="currentColor"></div>
     </main>
   </body>
 </html>
