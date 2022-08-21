@@ -2,7 +2,7 @@
 let containerSize = 256;
 
 //number of elements in a row
-let elementSize = 8;
+let elementSize = 6;
 
 //default color
 let colorPick = `hsl(120,100%,50%)`;
@@ -33,8 +33,8 @@ function changeColorSample() {
 //create board
 for (let i = 0; i < elementSize * elementSize; i++) {
   let content = document.createElement("div");
-  content.style.width = Math.floor(containerSize / elementSize) + "px";
-  content.style.height = Math.floor(containerSize / elementSize) + "px";
+  content.style.width = containerSize / elementSize + "px";
+  content.style.height = containerSize / elementSize + "px";
   content.style.background = "rgba(0%, 0%, 0%, .1)";
   container.appendChild(content);
 
