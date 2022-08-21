@@ -34,6 +34,7 @@ function changeColorSample() {
   let hueInput = document.querySelector("#hueInput");
   let saturationInput = document.querySelector("#saturationInput");
   let lightnessInput = document.querySelector("#lightnessInput");
+  let colorDisplay = document.querySelector("#colorDisplay");
   colorPick =
     `hsl(` +
     hueInput.value +
@@ -43,6 +44,8 @@ function changeColorSample() {
     lightnessInput.value +
     `%)`;
   console.log(hueInput.value);
+
+  colorDisplay.style.background = colorPick;
 }
 
 //create board
