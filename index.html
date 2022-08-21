@@ -17,10 +17,10 @@
           <label for=""
             >Hue:
             <input
-              type="number"
+              type="range"
               name=""
               id="hueInput"
-              min="0"
+              min="1"
               max="360"
               value="0"
               oninput="changeColorSample()"
@@ -29,11 +29,11 @@
           <label for=""
             >Saturation:
             <input
-              type="number"
+              type="range"
               name=""
               id="saturationInput"
-              min="0"
-              max="360"
+              min="1"
+              max="100"
               value="100"
               oninput="changeColorSample()"
             />
@@ -41,13 +41,25 @@
           <label for=""
             >Lightness:
             <input
-              type="number"
+              type="range"
               name=""
               id="lightnessInput"
-              min="0"
-              max="360"
+              min="1"
+              max="100"
               value="50"
               oninput="changeColorSample()"
+            />
+          </label>
+          <label for=""
+            >Element size:
+            <input
+              type="range"
+              name=""
+              id="elementSizeInput"
+              min="1"
+              max="18"
+              value="8"
+              oninput="changeElementSize()"
             />
           </label>
         </form>

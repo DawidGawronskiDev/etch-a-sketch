@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* outline: 1px red solid; */
 }
 
 main {
@@ -14,20 +13,11 @@ main {
 }
 
 #container {
-  transform: scale(1.5);
+  transform: scale(1);
   display: flex;
   flex-wrap: wrap;
 }
 
-#colorInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#colorDisplay {
-  margin: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: red;
+label * {
+  display: block;
 }

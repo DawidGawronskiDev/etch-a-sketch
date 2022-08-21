@@ -2,7 +2,11 @@
 let containerSize = 256;
 
 //number of elements in a row
-let elementSize = 6;
+let elementSizeInput = document.querySelector("#elementSizeInput");
+let elementSize = 8;
+function changeElementSize() {
+  elementSize = elementSizeInput.value;
+}
 
 //default color
 let colorPick = `hsl(120,100%,50%)`;
