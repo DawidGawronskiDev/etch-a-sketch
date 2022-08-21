@@ -1,66 +1,81 @@
-// size of container
-let containerSize = 256;
+let gridContainer = document.querySelector("#grid--container");
+let pixel = document.createElement("div");
 
-//number of elements in a row
-let elementSizeInput = document.querySelector("#elementSizeInput");
-let elementSize = 8;
-function changeElementSize() {
-  elementSize = elementSizeInput.value;
+let gridContainerSize = 256;
+let pixelSize = 4;
+
+let hueInput = document.querySelector("#hueInput");
+let saturationInput = document.querySelector("#saturationInput");
+let lightnessInput = document.querySelector("#lightnessInput");
+
+//reset grid
+function resetGrid() {
+  hueInput.value = 1;
+  saturationInput.value = 100;
+  lightnessInput.value = 50;
+  gridContainer.innerHTML = "";
+
+  changeColor();
+  createGrid();
 }
 
-//default color
-let colorPick = `hsl(120,100%,50%)`;
+let newColor = "blue";
 
-let container = document.querySelector("#container");
-container.style.height = 256 + "px";
-container.style.width = 256 + "px";
+//change color, hue, saturation and lightness
+function changeColor() {
+  newColor =
+    "hsl(" +
+    hueInput.value +
+    ", " +
+    saturationInput.value +
+    "%, " +
+    lightnessInput.value +
+    "%)";
+}
 
-function newContent(e) {
-  if (e.keyCode != 82) return;
-  container.innerHTML = "";
-  for (let i = 0; i < elementSize * elementSize; i++) {
-    let content = document.createElement("div");
-    content.style.width = containerSize / elementSize + "px";
-    content.style.height = containerSize / elementSize + "px";
-    content.style.background = "rgba(0%, 0%, 0%, .1)";
-    container.appendChild(content);
+//change color of pixel
+function changePixelColor(e) {
+  e.target.style.background = newColor;
+}
 
-    content.addEventListener("mouseenter", changeColor);
+//change number of pixel in one row
+function changePixelSize() {
+  let pixelSizeInput = document.querySelector("#pixelSizeInput");
+  pixelSize = pixelSizeInput.value;
+  resetGrid();
+}
+
+//turn on or turn off outline display
+let outlineDisplayBoolean = true;
+function outlineDisplay() {
+  let pixels = document.querySelectorAll(".pixel");
+
+  if (outlineDisplayBoolean == true) {
+    pixels.forEach((pixel) => (pixel.style.outline = "none"));
+    outlineDisplayBoolean = false;
+  } else {
+    pixels.forEach(
+      (pixel) => (pixel.style.outline = "1px solid rgba(0, 0, 0, 0.2)")
+    );
+    outlineDisplayBoolean = true;
   }
 }
 
-colorPick = "purple";
-function changeColor(e) {
-  e.target.style.background = colorPick;
+//create grid
+function createGrid() {
+  for (let i = 0; i < pixelSize * pixelSize; i++) {
+    pixel = document.createElement("div");
+    pixel.style.width = gridContainerSize / pixelSize + "px";
+    pixel.style.height = gridContainerSize / pixelSize + "px";
+    pixel.classList.add("pixel");
+    pixel.style.background = "rgba(0, 0, 0, 0.1)";
+    pixel.style.outline = "1px solid rgba(0, 0, 0, 0.2)";
+
+    pixel.addEventListener("mouseenter", changePixelColor);
+
+    gridContainer.appendChild(pixel);
+  }
 }
-
-function changeColorSample() {
-  let hueInput = document.querySelector("#hueInput");
-  let saturationInput = document.querySelector("#saturationInput");
-  let lightnessInput = document.querySelector("#lightnessInput");
-  let colorDisplay = document.querySelector("#colorDisplay");
-  colorPick =
-    `hsl(` +
-    hueInput.value +
-    `, ` +
-    saturationInput.value +
-    `%, ` +
-    lightnessInput.value +
-    `%)`;
-  console.log(hueInput.value);
-
-  colorDisplay.style.background = colorPick;
-}
-
-//create board
-for (let i = 0; i < elementSize * elementSize; i++) {
-  let content = document.createElement("div");
-  content.style.width = containerSize / elementSize + "px";
-  content.style.height = containerSize / elementSize + "px";
-  content.style.background = "rgba(0%, 0%, 0%, .1)";
-  container.appendChild(content);
-
-  content.addEventListener("mouseenter", changeColor);
-}
-
-window.addEventListener("keydown", newContent);
+createGrid();
+window.addEventListener("click", canDraw);
+window.addEventListener("keydown", resetGrid);

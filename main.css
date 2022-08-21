@@ -3,21 +3,17 @@
   padding: 0;
 }
 
-main {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+#grid--container {
+  width: 256px;
+  height: 256px;
 
-#container {
-  transform: scale(1);
   display: flex;
   flex-wrap: wrap;
 }
 
-label * {
-  display: block;
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
