@@ -2,7 +2,7 @@
 let containerSize = 256;
 
 //number of elements in a row
-let elementSize = 64;
+let elementSize = 8;
 
 //default color
 let colorPick = `hsl(120,100%,50%)`;
@@ -16,9 +16,18 @@ function changeColor(e) {
   e.target.style.background = colorPick;
 }
 function changeColorSample() {
-  let colorInput = document.querySelector("#colorInput");
-  colorPick = `hsl(` + colorInput.value + `, 100%, 50%)`;
-  console.log(colorInput.value);
+  let hueInput = document.querySelector("#hueInput");
+  let saturationInput = document.querySelector("#saturationInput");
+  let lightnessInput = document.querySelector("#lightnessInput");
+  colorPick =
+    `hsl(` +
+    hueInput.value +
+    `, ` +
+    saturationInput.value +
+    `%, ` +
+    lightnessInput.value +
+    `%)`;
+  console.log(hueInput.value);
 }
 
 //create board

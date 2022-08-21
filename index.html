@@ -11,14 +11,45 @@
   <body>
     <main>
       <div id="container"></div>
-      <input
-        type="number"
-        name=""
-        id="colorInput"
-        min="0"
-        max="360"
-        oninput="changeColorSample()"
-      />
+
+      <form action="">
+        <label for=""
+          >Hue:
+          <input
+            type="number"
+            name=""
+            id="hueInput"
+            min="0"
+            max="360"
+            value="0"
+            oninput="changeColorSample()"
+          />
+        </label>
+        <label for=""
+          >Saturation:
+          <input
+            type="number"
+            name=""
+            id="saturationInput"
+            min="0"
+            max="360"
+            value="100"
+            oninput="changeColorSample()"
+          />
+        </label>
+        <label for=""
+          >Lightness:
+          <input
+            type="number"
+            name=""
+            id="lightnessInput"
+            min="0"
+            max="360"
+            value="50"
+            oninput="changeColorSample()"
+          />
+        </label>
+      </form>
     </main>
   </body>
 </html>
