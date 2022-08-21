@@ -29,14 +29,7 @@ function resetGrid() {
 let newColor = "red";
 //change color, hue, saturation and lightness
 function changeColor() {
-  newColor =
-    "hsl(" +
-    hueInput.value +
-    ", " +
-    saturationInput.value +
-    "%, " +
-    lightnessInput.value +
-    "%)";
+  newColor = `hsl(${hueInput.value}, ${saturationInput.value}%, ${lightnessInput.value}%)`;
   currentColor.style.background = newColor;
 }
 
